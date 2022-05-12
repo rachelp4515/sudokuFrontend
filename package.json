@@ -1,6 +1,7 @@
 {
   "name": "sudoku",
   "version": "0.1.0",
+  "homepage": "https://rachelp4515.github.io/sudokuFrontend",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
@@ -25,7 +26,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -b pages -d build"
   },
   "eslintConfig": {
     "extends": [
