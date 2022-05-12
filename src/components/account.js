@@ -34,7 +34,7 @@ export default function Account() {
   useEffect(() => {
     console.log(parsedCookie)
     if (parsedCookie != null) {
-      fetch(`http://localhost:4000/user/${parsedCookie._id}`).then(res => res.json())
+      fetch(`http://https://sudoku-backend-rp.herokuapp.com/user/${parsedCookie._id}`).then(res => res.json())
         .then(json => setUser(json.user))
     }
 

@@ -8,7 +8,7 @@ export default function Adder() {
     const[motd, updateMotd] = useState("")
 
     function addNumbers() {
-        fetch("http://localhost:4000/add/", {
+        fetch("http://https://sudoku-backend-rp.herokuapp.com/add/", {
             method: "POST",
             mode: "cors",
             headers: {
@@ -24,7 +24,7 @@ export default function Adder() {
     }
 
     useEffect(() => {
-        fetch("http://localhost:4000/random")
+        fetch("http://https://sudoku-backend-rp.herokuapp.com/random")
         .then(res => res.json())
         .then(json => {
             updateMotd(json.random)

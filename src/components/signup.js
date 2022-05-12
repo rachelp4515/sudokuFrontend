@@ -15,13 +15,13 @@ export default function Login() {
 
 
     function createUser() {
-        fetch("http://localhost:4000/sign-up/", {
+        fetch("http://https://sudoku-backend-rp.herokuapp.com/sign-up/", {
             method: 'POST',
             mode: 'cors',
             headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Credentials': true,
-                'Access-Control-Allow-Origin': "http://localhost:4000/"
+                'Access-Control-Allow-Origin': "http://https://sudoku-backend-rp.herokuapp.com/"
             },
             credentials: "include",
             body: JSON.stringify({ username, password, email, phone }),
