@@ -1,30 +1,70 @@
-import { useCookies } from 'react-cookie';
 import jwt_decode from 'jwt-decode';
-import {Navigate} from "react-router-dom"
-import Nav from './nav';
+import { Link, useNavigate } from "react-router-dom"
+import { faUserGear, faHouse, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useCookies } from "react-cookie";
+import { useEffect, useState } from 'react';
+
+const homeIcon = <FontAwesomeIcon icon={faHouse} />
+const logoutIcon = <FontAwesomeIcon icon={faArrowRightFromBracket} />
+
+export default function Account() {
+  const [cookie, setCookie, removeCookie] = useCookies("nToken")
+  const nav = useNavigate()
+  const [user, setUser] = useState({})
+
+  function logout(e) {
+    removeCookie("nToken")
+    nav("/login")
+  }
 
 
-export default function Account(){
-    const[cookie, setCookie, removeCookie] = useCookies("nToken")
-    console.log(cookie)
-    let user = null
-    let isExpired = true
-    if(Object.keys(cookie).length != 0) {
-      user = jwt_decode(cookie.nToken);
-      isExpired = new Date(user.exp * 1000) < new Date()
-      if(isExpired) {
-        removeCookie("nToken")
-      }
+
+  let parsedCookie = null
+  let isExpired = true
+  if (Object.keys(cookie).length != 0) {
+    parsedCookie = jwt_decode(cookie.nToken);
+    isExpired = new Date(parsedCookie.exp * 1000) < new Date()
+    if (isExpired) {
+      removeCookie("nToken")
     }
 
-    return(
-        <div className="account">
-            <Nav />
-            <div>
-            <h2>Account</h2>
-            <p> {user.username} </p>
-            </div>
+  }
 
+  useEffect(() => {
+    console.log(parsedCookie)
+    if (parsedCookie != null) {
+      fetch(`http://localhost:4000/user/${parsedCookie._id}`).then(res => res.json())
+        .then(json => setUser(json.user))
+    }
+
+  }, [])
+
+  return (
+    <div className="account">
+      <div className='fakeNav'>
+        <h1> Sudoku </h1>
+        <ul>
+          <li onClick={logout}> <a href="">{logoutIcon} <br /> Logout </a> </li>
+          <li> <Link to='/'> {homeIcon} <br /> Home </Link> </li>
+        </ul>
+      </div>
+
+      <div className='userInfo'>
+        <div>
+          <h4 htmlFor="username">Username</h4>
+          <h4 htmlFor="email">Email</h4>
+          <h4 htmlFor="phone number">Phone Number</h4>
         </div>
-    )
+
+        <div>
+          <p> {user.username} </p>
+          <p> {user.email} </p>
+          <p> {user.phone} </p>
+        </div>
+      </div>
+        {/* <button> Edit your information </button> */}
+
+    </div>
+  )
 }

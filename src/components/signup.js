@@ -33,7 +33,6 @@ export default function Login() {
             .then(json => {
                 setCookie("nToken", json.token)
                 nav("/")
-                // <-- why
 
             })
     }

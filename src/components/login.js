@@ -46,8 +46,8 @@ export default function Login() {
                     <input type="password" placeholder="password" value={password} onChange={e => updatePW(e.target.value)} />
                 </div>
             </div>
-                    <button onClick={() => loginUser()}> Go </button>
-                <Link to='/signup'>New User</Link>
+            <button onClick={() => loginUser()}> Go </button>
+            <Link to='/signup'>New User</Link>
         </div>
     )
 }

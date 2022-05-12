@@ -16,6 +16,7 @@
   color: white;
 }
 
+
 .App-link {
   color: #61dafb;
 }
@@ -23,6 +24,27 @@
 
 /* -------------- ACCOUNT  */
 
+.userInfo{
+  margin: 6rem;
+  margin-top: 8rem;
+  display: flex;
+  height: 500px;
+  background-color: #596274;
+}
+.userInfo div, h4, p{
+  padding: 30px;
+}
+
+.account button{
+  width:120px;
+  padding: 10px;
+  margin: 15px;
+  background-color: rgba(16, 33, 80, 0.614);
+  color: white;
+  font-size: medium;
+  border: 1px solid black;
+  border-radius: 5px;
+}
 .account{
   background-color: #282c34;
   min-height: 100vh;
@@ -32,6 +54,37 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.fakeNav{
+  display: flex;
+  position: fixed;
+  font-size: medium;
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(16, 33, 80);
+  max-height: 5rem;
+  text-align: center;
+}
+.fakeNav h1{
+  font-size: xx-large;
+  padding: 10px;
+  color: black;
+}
+.fakeNav ul{
+  list-style: none;
+  padding: 0;
+}
+.fakeNav li{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  float: right;
+}
+.fakeNav a{
+  color: white;
+  text-decoration: none;
+}
+
 
 /* -------------------------------- */
 
@@ -67,23 +120,34 @@ td{
 
 
 .nav{
+  display: flex;
+  position: fixed;
   width: 100%;
   padding: 10px;
   margin: 0;
-  background-color: rgba(16, 33, 80, 0.614);
+  background-color: rgba(16, 33, 80);
+  max-height: 5rem;
+}
+.nav h1{
+  font-size: xx-large;
+  padding: 10px;
 }
 .nav ul{
   list-style: none;
-  padding: 10px;
+  padding: 0;
 }
 .nav li{
   display: inline;
-  padding: 10px;
+  padding: 20px;
   float: right;
 }
 .nav a{
   color: white;
+  text-decoration: none;
 }
+
+
+
 
 
 /* ------------------ LOGIN */
@@ -171,3 +235,26 @@ td{
   flex-direction: column;
 }
 
+
+.bBorder{
+  border-bottom: 2px solid black;
+}
+
+.rBorder {
+  border-right: 2px solid black;
+}
+
+.buttonContainer button{
+  width:120px;
+  padding: 12px;
+  margin: 15px;
+  background-color: rgba(16, 33, 80, 0.614);
+  color: white;
+  font-size: medium;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.buttonContainer button:nth-child(even){
+  background-color: rgba(25, 70, 128, 0.705);
+}
