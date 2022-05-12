@@ -11,13 +11,13 @@ export default function Login() {
     const nav = useNavigate()
 
     function loginUser() {
-        fetch("http://https://sudoku-backend-rp.herokuapp.com/login/", {
+        fetch("https://sudoku-backend-rp.herokuapp.com/login/", {
             method: 'POST',
             mode: 'cors',
             headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Credentials': true,
-                'Access-Control-Allow-Origin': "http://https://sudoku-backend-rp.herokuapp.com/"
+                'Access-Control-Allow-Origin': "https://sudoku-backend-rp.herokuapp.com/"
             },
             credentials: "include",
             body: JSON.stringify({ username, password }),
